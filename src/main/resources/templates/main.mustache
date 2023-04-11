@@ -1,0 +1,48 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Main</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="contacts-wrapper">
+        <div class="contacts">
+            <p>Тоска, ул. Отчаяния 6</p>
+            <p>&#128386; xxxxxxxxxx@gmail.com</p>
+        </div>
+    </div>
+
+    <header>
+        <div id="menu">
+            {{#links}}
+            <a href="{{link}}">{{namePage}}</a>
+            {{/links}}
+        </div>
+    </header>
+
+    <main>
+        <div class="category-list-nav">
+            {{#categoryLink}}
+            <div class="category-nav">
+                <a href="{{link}}"><img src="{{url}}" alt="здесь могло быть фото продукта" /></a>
+                <a href="{{link}}">{{namePage}}</a>
+            </div>
+            {{/categoryLink}}
+        </div>
+
+        <div class="list-flex">
+            {{#animalLink}}
+                <div class="category">
+                    <a href="{{link}}"><img src="{{url}}" alt="здесь могло быть фото продукта" /></a>
+                    <a href="{{link}}">{{namePage}}</a>
+                </div>
+            {{/animalLink}}
+        </div>
+    </main>
+
+</body>
+
+</html>

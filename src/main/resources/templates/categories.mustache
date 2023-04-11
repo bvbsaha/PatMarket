@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Category</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="contacts-wrapper">
+        <div class="contacts">
+            <p>Тоска, ул. Отчаяния 6</p>
+            <p>&#128386; xxxxxxxxxx@gmail.com</p>
+        </div>
+    </div>
+
+    <header>
+        <div id="menu">
+            {{#links}}
+            <a href="{{link}}">{{namePage}}</a>
+            {{/links}}
+        </div>
+    </header>
+
+    <main>
+        <div class="form-wrapper">
+            <form enctype="multipart/form-data" method="post">
+                <input type="text" name="name" placeholder="category" />
+                <div class="input-wrapper">
+                    <input type="file" name="file" id="input-file">
+                    <label for="input-file">Выберите файл</label>
+                </div>
+                <button type="submit">Добавить</button>
+            </form>
+        </div>
+
+        <div class="list-flex">
+            {{#categories}}
+            <div class="category">
+                <span>{{categoryName}}</span>
+                <img src="{{categoryUrl}}" alt="здесь могло быть фото продукта" />
+                <!--        <img src="../../{url}}" alt="здесь могло быть фото продукта"/>-->
+                <form action="/categories/delete/{{categoryId}}" method="post">
+                    <button type="submit">delete</button>
+                </form>
+                <form action="/categories/update/{{categoryId}}" method="get">
+                    <button type="submit">update</button>
+                </form>
+            </div>
+            {{/categories}}
+        </div>
+    </main>
+
+</body>
+
+</html>

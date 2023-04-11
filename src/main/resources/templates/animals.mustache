@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Animals</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="contacts-wrapper">
+        <div class="contacts">
+            <p>Тоска, ул. Отчаяния 6</p>
+            <p>&#128386; xxxxxxxxxx@gmail.com</p>
+        </div>
+    </div>
+
+    <header>
+        <div id="menu">
+           {{#links}}
+            <a href="{{link}}">{{namePage}}</a>
+            {{/links}}
+        </div>
+    </header>
+
+    <main>
+        <div class="form-wrapper">
+            <form class="new-animal-form" enctype="multipart/form-data" method="post" action="/animal/create">
+                <input type="text" name="animalName" placeholder="Лев">
+                <div class="input-wrapper">
+                    <input type="file" name="file" id="input-file">
+                    <label for="input-file">Выберите файл</label>
+                </div>
+                <button type="submit">Добавить</button>
+            </form>
+        </div>
+
+        <div class="list-flex">
+           {{#animals}}
+            <div class="animal">
+                <p><b>{{animalId}}</b></p>
+                <p>{{animalName}}</p>
+                <img style="margin-bottom:10px" src="../{{animalUrl}}" alt="здесь могло быть фото продукта" />
+                <form action="/animal/delete/{{animalId}}" method="post">
+                    <button type="submit">Удалить</button>
+                </form>
+            </div>
+            {{/animals}}
+        </div>
+    </main>
+</body>
+
+</html>

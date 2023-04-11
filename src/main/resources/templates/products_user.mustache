@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Products</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="contacts-wrapper">
+        <div class="contacts">
+            <p>Тоска, ул. Отчаяния 6</p>
+            <p>&#128386; xxxxxxxxxx@gmail.com</p>
+        </div>
+    </div>
+
+    <header>
+        <div id="menu">
+            {{#links}}
+            <a href="{{link}}">{{namePage}}</a>
+            {{/links}}
+        </div>
+    </header>
+
+    <main>
+        <div class="list-flex">
+            {{#products}}
+            <div class="product">
+                <img src="../../{{productUrl}}" alt="здесь могло быть фото продукта" />
+                <p><b>цена: </b>{{price}}</p>
+                {{#animal}}
+                <p><b> питомец: </b>{{animalName}}</p>
+                {{/animal}}
+                {{#category}}
+                <p><b>категория:</b>{{categoryName}}</p>
+                {{/category}}
+                <p><b>продукт:</b>{{productName}}</p>
+                <form action="/order/add-to-order/{{productId}}" method="post">
+                    <input style="width: 140px; margin-bottom: 10px;" type="number" name="count" value="1" placeholder="количество" />
+                    <button type="submit">добавить в корзину</button>
+                </form>
+            </div>
+            {{/products}}
+    </main>
+
+
+
+</body>
+
+</html>

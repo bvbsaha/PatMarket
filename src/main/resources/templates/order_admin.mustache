@@ -1,0 +1,131 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Order</title>
+</head>
+
+<body>
+
+    <div class="contacts-wrapper">
+        <div class="contacts">
+            <p>Тоска, ул. Отчаяния 6</p>
+            <p>&#128386; xxxxxxxxxx@gmail.com</p>
+        </div>
+    </div>
+
+    <header>
+        <div id="menu">
+            {{#links}}
+            <a href="{{link}}">{{namePage}}</a>
+            {{/links}}
+        </div>
+    </header>
+
+    <main>
+        {{#sentPurchases}}
+        <div class="label">
+            <label>Заказ ожидает подтверждения</label>
+        </div>
+        <div class="sent-purchase">
+            {{#user}}
+            <b>user </b>
+            <span>{{email}}</span>
+            {{/user}}
+            {{#items}}
+            {{#patProduct}}
+            <div>
+                <b>товар </b>
+                <span>{{productName}}</span>
+            </div>
+            <div>
+                <b>количество </b>
+                <span>{{count}}</span>
+            </div>
+            <div>
+                <b>цена за единицу </b>
+                <span>{{price}}</span>
+            </div>
+            {{/patProduct}}
+            {{/items}}
+            <form action="/order/admin/confirm/{{purchaseId}}" method="post">
+                <button class="order-button" type="submit">подтвердить заказ</button>
+            </form>
+        </div>
+        <div>
+            <b>cумма: </b>
+            {{sum}}
+        </div>
+        {{/sentPurchases}}
+
+        {{#confirmedPurchases}}
+        <div class="label">
+            <label> Заказ доставляется</label>
+        </div>
+        <div class="confirmed-purchase">
+            {{#user}}
+            <b>user </b>
+            <span>{{email}}</span>
+            {{/user}}
+            {{#items}}
+
+            {{#patProduct}}
+            <div>
+                <b>товар </b>
+                <span>{{productName}}</span>
+            </div>
+            <div>
+                <b>количество </b>
+                <span>{{count}}</span>
+            </div>
+            <div>
+                <b>цена за единицу </b>
+                <span>{{price}}</span>
+            </div>
+            {{/patProduct}}
+            {{/items}}
+        </div>
+        <div>
+            <b>cумма: </b>
+            {{sum}}
+        </div>
+        {{/confirmedPurchases}}
+
+        {{#closePurchases}}
+        <div class="label">
+            <label> Заказ завершен</label>
+        </div>
+        <div class="closed-purchase">
+            {{#user}}
+            <b>user </b>
+            <span>{{email}}</span>
+            {{/user}}
+            {{#items}}
+            {{#patProduct}}
+            <div>
+                <b>товар </b>
+                <span>{{productName}}</span>
+            </div>
+            <div>
+                <b>количество </b>
+                <span>{{count}}</span>
+            </div>
+            <div>
+                <b>цена за единицу </b>
+                <span>{{price}}</span>
+            </div>
+            {{/patProduct}}
+            {{/items}}
+        </div>
+        <div>
+            <b>cумма: </b>
+            {{sum}}
+        </div>
+
+        {{/closePurchases}}
+
+    </main>
+</body>
+
+</html>

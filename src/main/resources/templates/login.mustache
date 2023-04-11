@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            color: #777;
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            padding: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login {
+            width: 300px;
+            height: 300px;
+            padding: 30px;
+            background-color: #FFF;
+            text-align: center;
+            box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+            border-radius: 10px;
+        }
+
+        .login > form > * {
+            margin: 0px 0px 10px;
+        }
+
+        .login h1 {
+            margin: 0px 0px 20px;
+        }
+
+        .login-screen-button {
+            width: 170px;
+            height: 40px;
+            color: #FFF;
+            border: none;
+            background-color: green;
+            border: 2px solid green;
+            border-radius: 5px;
+            font-size: large;
+            padding: 5px 10px;
+        }
+
+        .login-screen-button:hover {
+            background-color: #FFF;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login">
+        <form class="form-signin" method="post" action="/auth/login">
+            <h1 class="form-signin-heading">Логин</h1>
+            <p>
+                <label for="username">Имя пользователя</label>
+                <input type="text" id="username" name="username" class="form-control" required>
+            </p>
+            <p>
+                <label style="margin-right: 6px" for="password">Пароль пользователя</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </p>
+            <button class="login-screen-button" type="submit">Войти</button>
+
+        </form>
+
+        <form action="reg">
+            <button class="login-screen-button" type="submit">Регистрация</button>
+        </form>
+
+
+    </div>
+</body>
+
+</html>
